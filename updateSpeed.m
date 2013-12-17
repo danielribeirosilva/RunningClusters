@@ -1,4 +1,4 @@
-function speed = updateSpeed (distances, positions, speed)
+function speed = updateSpeed (distances, positions, speed, speedNorm)
     
     %add infinite weight to self-distance
     I = eye(size(distances,1));
@@ -17,7 +17,6 @@ function speed = updateSpeed (distances, positions, speed)
     speed = speed + newDirection;
     %normalize
     speed = normr(speed);
-    
-    
+    speed = sqrt(speedNorm)*speed;
     
 end
